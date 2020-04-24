@@ -1,0 +1,12 @@
+table#adm-table {
+    border-collapse: collapse;
+  }
+  
+  table#adm-table, th, td {
+    border: 1px solid rgb(116, 116, 116);
+    padding: 2px 3px;
+  }
+
+  .ak-col-subtitle {
+    margin: 10px 0;
+  }

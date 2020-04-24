@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accused Search</title>
+
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 class="text-center">Accused search</h1>
+    <form class="form-inline text-center" id="search-form">
+        <div class="form-group">
+            <input type="text" class="form-control" name="nameParam" id="name-param" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="parentParam" id="parent-param" placeholder="Parent Name" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="checkbox" name="byAge" id="by-age">
+            <label>By Age</label>
+        </div>
+        <div class="form-group" id="age-range">
+            
+        </div>
+        <input type="hidden" name="pageNo" value="1">
+        <input type="hidden" name="noOfRecordsPerPage" value="10">
+        <button type="submit" class="btn btn-default">Search</button>
+        <button type="button" class="btn btn-default" onclick="prevButtonPressed()">&lt;&lt; prev</button>
+        <button type="button" class="btn btn-default" onclick="nextButtonPressed()">next &gt;&gt;</button>
+    </form>
+
+    <hr>
+
+    <div class="container" id="results">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Case Sub Type</h3>
+                <hr>
+                <div id="case-sub-type" class="list-group"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Age Group</h3>
+                <hr>
+                <div id="age-group" class="list-group"></div>
+            </div>
+            <div class="col-md-4">
+                <h3>Address</h3>
+                <hr>
+                <div id="address" class="list-group"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/accused_search.js"></script>
+</body>
+
+</html>

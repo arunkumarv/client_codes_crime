@@ -1,0 +1,6 @@
+This code comprises static files which can be hosted on any server provided:-
+1) The relative paths are maintained
+2) The API server is up and running
+3) config.js has correct configuration settings for api server, port and other details
+
+It is preferred to host on the api server's static folder ( Spring in our case ).

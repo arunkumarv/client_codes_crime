@@ -8,6 +8,7 @@
     <title>Accused Search</title>
 
     <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/style.css">
 </head>
 
 <body>
@@ -20,14 +21,11 @@
             <input type="text" class="form-control" name="parentParam" id="parent-param" placeholder="Parent Name" required>
         </div>
         <div class="form-group">
-            <input class="form-control" type="checkbox" name="byAge" id="by-age">
-            <label>By Age</label>
-        </div>
-        <div class="form-group" id="age-range">
-            
+            <input class="form-control" type="number" name="lowerAge" id="lower-age" placeholder="Min Age" required>
+            <input class="form-control" type="number" name="upperAge" id="upper-age" placeholder="Max Age" required>
         </div>
         <input type="hidden" name="pageNo" value="1">
-        <input type="hidden" name="noOfRecordsPerPage" value="10">
+        <input type="hidden" name="noOfRecordsPerPage" value="30">
         <button type="submit" class="btn btn-default">Search</button>
         <button type="button" class="btn btn-default" onclick="prevButtonPressed()">&lt;&lt; prev</button>
         <button type="button" class="btn btn-default" onclick="nextButtonPressed()">next &gt;&gt;</button>
@@ -52,6 +50,25 @@
                 <hr>
                 <div id="address" class="list-group"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="modal" id="accuseDetailsModal" role="dialog">
+        
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="adm-title"></h4>
+                </div>
+                <div class="modal-body" id="adm-body">
+                    <table id="adm-table"></table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
         </div>
     </div>
 

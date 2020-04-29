@@ -10,3 +10,7 @@ table#adm-table {
   .ak-col-subtitle {
     margin: 10px 0;
   }
+
+  a:hover{
+    cursor: pointer;
+  }

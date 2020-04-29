@@ -5,10 +5,4 @@ let ip = "10.184.36.72";
 let port ="8081";
 
 /* API endpoints */
-let endpoints = { 
-    
-    criminalSearch: "criminal-search",
-    
-    
-
-};
+let endpoints = { criminalSearch: "criminal-search" };

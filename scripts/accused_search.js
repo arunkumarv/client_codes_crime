@@ -1,15 +1,6 @@
 let params = {};
 
-let HTMLelements = {
-
-    ageRangeElement: '<input class="form-control" type="number" name="lowerAge" id="lower-age" required>\
-    <input class="form-control" type="number" name="upperAge" id="upper-age" required>'
-};
-
-$(function () {
-
-    accusedSearch();
-});
+let keysToFilter = [ "addressNew", "rank", "id", "groupId", "ageGroup"];
 
 function accusedSearch() {
 
@@ -21,27 +12,15 @@ function accusedSearch() {
 
     document.getElementById('parent-param').value = params.parentParam;
 
-    if ( params.byAge )  { 
-        
-        document.getElementById('by-age').checked = true;
-        
-        var newInput = $(HTMLelements.ageRangeElement);
+    document.getElementById('lower-age').value = params.lowerAge;
 
-        $('#age-range').append(newInput);
+    document.getElementById('upper-age').value = params.upperAge;
 
-        document.getElementById('lower-age').value = params.lowerAge;
-
-        document.getElementById('upper-age').value = params.upperAge;
-    }
-
-    let endpoint = params.byAge ? endpoints.criminalSearchBasedOnAge : endpoints.criminalSearch;
-
-    // $.getJSON ( getApiUrl ( ip, port, endpoint ), params, function (r) {
+    // $.getJSON ( getApiUrl ( ip, port, endpoints.criminalSearch ), params, function (r) {
 
     $.get('./test/ageGroup.json', function (r) {
 
         // console.log (r);
-        r = r.map(e => ({ ...e, ageGroup: parseInt(e.age / 10) * 10 + '-' + ((parseInt(e.age / 10) * 10) + 10) }));
 
         console.log(r);
 
@@ -49,13 +28,13 @@ function accusedSearch() {
 
         let gbCaseSubType = gbreduce(r, (c) => c.caseSubtype);
 
-        let gbAddress = gbreduce(r, (c) => c.address);
+        let gbAddress = gbreduce(r, (c) => c.groupId);
 
-        for (let key in gbCaseSubType) addToColumn(key, gbCaseSubType[key], 'case-sub-type');
+        for (let key in gbCaseSubType) addToColumn('caseSubtype', key, gbCaseSubType[key], 'case-sub-type');
 
-        for (let key in gbAgeGroup) addToColumn(key, gbAgeGroup[key], 'age-group');
+        for (let key in gbAgeGroup) addToColumn('ageGroup', key, gbAgeGroup[key], 'age-group');
 
-        for (let key in gbAddress) addToColumn(key, gbAddress[key], 'address');
+        for (let key in gbAddress) addToColumn('address', key, gbAddress[key], 'address');
 
     })/*
         .done (  () => { console.log("Second Success"); })
@@ -65,29 +44,42 @@ function accusedSearch() {
         .always (  () => { console.log("Finished"); });*/
 }
 
-function addToColumn(key, arr, divid) {
+function addToColumn(titleKey, key, arr, divid) {
+
+    console.log(arr);
 
     var column = document.getElementById(divid);
 
-    column.appendChild(document.createTextNode(key))
+    var subTitle = document.createElement("div");
+
+    subTitle.className = "ak-col-subtitle";
+
+    subTitle.appendChild(document.createTextNode(arr[0][titleKey]));
+
+    column.appendChild(subTitle)
 
     $.each(arr, function (position, value) {
 
         let entryDiv = document.createElement("a");
 
-        entryDiv.classList.add("list-group-item")
+        $(entryDiv).on('click', function () {
+
+            showDetailsModal(value);
+        });
+
+        entryDiv.classList.add("list-group-item");
 
         let titleDiv = document.createElement("h4");
 
         titleDiv.classList.add("list-group-item-heading");
 
-        titleDiv.appendChild(document.createTextNode(''.concat(value.name, ' ', value.parent)));
+        titleDiv.appendChild(document.createTextNode(''.concat(value.name)));
 
         let descDiv = document.createElement("p");
 
         descDiv.classList.add("list-group-item-text");
 
-        descDiv.appendChild(document.createTextNode(''.concat('Case Type:', value.caseType, ', '.concat('Age: ', value.age))));
+        descDiv.appendChild(document.createTextNode(''.concat('Case Type:', value.caseType, ', '.concat('Age: ', value.age), ', '.concat('Parent: ', value.parent ))));
 
         entryDiv.appendChild(titleDiv);
 
@@ -135,26 +127,39 @@ function getNewUrl(params) {
     return document.location.origin + document.location.pathname + '?' + $.param(params);
 }
 
+function showDetailsModal(obj) {
 
+    $("#adm-table tr").remove();
 
-$('#by-age').change(function () {
+    $("#adm-title").empty();
 
-    var $this = $(this);
+    $("#adm-title").append("".concat(obj.name, " ", obj.parent));
 
-    if ($this.is(':checked')) {
+    for (let key in obj) {
 
-        console.log(true)
+        if ( keysToFilter.includes(key) ) { continue; }
 
-        var newInput = $(HTMLelements.ageRangeElement);
+        var $tr = $('<tr>').append (
 
-        $('#age-range').append(newInput);
+            $('<td>').text( camelToWords(key) ),
 
-    } else {
+            $('<td>').text(obj[key])
 
-        console.log(false);
+        ).appendTo('#adm-table');
 
-        $('#age-range').empty();
     }
+
+    $('#accuseDetailsModal').modal('show');
+}
+
+
+
+$(function () {
+
+    accusedSearch();
 });
+
+
+
 
 

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/sb-style.css">
+    <link rel="stylesheet" href="./libs/style.css">
+    <title>Front Page</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        SCRB
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Crime Trends</a>
+                </li>
+                <li>
+                    <a href="#">Accused & Victim Statistics</a>
+                </li>
+                <li>
+                    <a href="/accused_search.html">Accused Search</a>
+                </li>
+                <li>
+                    <a href="#">Crime Hotspot</a>
+                </li>
+               <!--  
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header">Dropdown heading</li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+        
+            <nav class="navbar navbar-default navbar-static-top">
+                <div class="container-fluid">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a  data-toggle="offcanvas">
+                                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            <!-- <img alt="Brand" src="..."> -->
+                            State Crime Records Beuro
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel">
+                            <div class="panel-body bk-info">
+                                <h3 id="total-crime" class="count"></h3>
+                                <div>
+                                    Total Cases
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel">
+                            <div class="panel-body bk-warning">
+                                <h3 id="crime" class="count"></h3>
+                                <div>
+                                    Crime
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel">
+                            <div class="panel-body bk-success">
+                                <h3 id="road-accident" class="count"></h3>
+                                <div>
+                                    Road Acciden
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="panel">
+                            <div class="panel-body bk-danger">
+                                <h3 id="prohibition" class="count"></h3>
+                                <div>
+                                    Prohibition
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bk-white">Subcases Statistics</div>
+                            <div class="panel-body">
+                                <ul id="sub-case-type"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bk-white">Status in Last 3 months</div>
+                            <div class="panel-body">
+                                <ul id="status-in-last-3-months"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bk-white">Top Crimes Police Station</div>
+                            <div class="panel-body">
+                                <div id="top-crimes-policestation"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bk-white">Top Crime Districts</div>
+                            <div class="panel-body">
+                                <div id="top-crimes-district"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        Copyright © 2020 CDAC. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+
+    <script src="./scripts/config.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/front_page.js"></script>
+    <script>
+        $(document).ready(function () {
+            var trigger = $('.hamburger'),
+                overlay = $('.overlay'),
+                isClosed = false;
+
+            trigger.click(function () {
+                hamburger_cross();
+            });
+
+            function hamburger_cross() {
+
+                if (isClosed == true) {
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                } else {
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                }
+            }
+
+            $('[data-toggle="offcanvas"]').click(function () {
+                $('#wrapper').toggleClass('toggled');
+            });
+        });
+    </script>
+</body>
+
+</html>

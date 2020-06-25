@@ -153,7 +153,6 @@ function showDetailsModal(obj) {
 }
 
 
-
 $(function () {
 
     accusedSearch();

@@ -1,3 +1,9 @@
+body {
+  background-color: #F4F6F9;
+  margin:0;
+  padding:0;
+}
+
 table#adm-table {
     border-collapse: collapse;
   }
@@ -13,4 +19,82 @@ table#adm-table {
 
   a:hover{
     cursor: pointer;
+  }
+
+  ul#sub-case-type { 
+    list-style-type: none; 
+    padding-left: 5px; 
+  }
+
+  ul#sub-case-type li { 
+    display: inline-block; 
+    border: 1px solid #dadada;
+    margin: 2px;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  ul#status-in-last-3-months {
+    list-style-type: none; 
+    padding-left: 5px; 
+  }
+
+  ul#status-in-last-3-months li { 
+    display: inline-block; 
+    border: 1px solid #cdcdcd;
+    margin: 2px;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  .bk-black {
+    background-color: #767d82;
+    color: #fff;
+  }
+
+  .bk-info {
+    background-color:#18A2B8;
+    color: #fff;
+  }
+
+  .bk-warning {
+    background-color:#FFC108;
+    color: #555;
+  }
+
+
+  .bk-success {
+    background-color:#28A745;
+    color: #fff;
+  }
+  
+  .mt-3 {
+    margin-top: 30px;
+  }
+  .bk-danger {
+    background-color:#C6303F;
+    color: #fff;
+  }
+  .panel-default>.bk-white {
+    background-color:  #fff;
+    color: #111;
+    font-size: l  arge;
+  }
+
+  .panel {
+    border-radius: 0;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #dadce0;
+  }
+
+  .navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #dadce0;
+  }
+
+  h3.count{
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    padding: 0;
+    white-space: nowrap;
   }

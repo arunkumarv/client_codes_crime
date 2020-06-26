@@ -34,7 +34,7 @@
                 <li>
                     <a href="#">Crime Hotspot</a>
                 </li>
-               <!--  
+                <!--  
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -53,13 +53,13 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-        
+
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container-fluid">
                     <div>
                         <ul class="nav navbar-nav">
                             <li>
-                                <a  data-toggle="offcanvas">
+                                <a data-toggle="offcanvas">
                                     <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                 </a>
                             </li>
@@ -74,84 +74,58 @@
                 </div>
             </nav>
             <div class="container-fluid">
+
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="panel">
-                            <div class="panel-body bk-info">
-                                <h3 id="total-crime" class="count"></h3>
-                                <div>
-                                    Total Cases
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="text" name="name" id="name" class="form-control"
+                                                placeholder="Name">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="date" name="fromdate" id="fromdate" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="date" name="todate" id="todate" class="form-control">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-outline-secondary"
+                                                onclick="getDistricts()">Search</button>
+                                            <!-- <button class="btn btn-outline-secondary" onclick="clear()">Clear</button> -->
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="panel">
-                            <div class="panel-body bk-warning">
-                                <h3 id="crime" class="count"></h3>
-                                <div>
-                                    Crime
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="panel">
-                            <div class="panel-body bk-success">
-                                <h3 id="road-accident" class="count"></h3>
-                                <div>
-                                    Road Acciden
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="panel">
-                            <div class="panel-body bk-danger">
-                                <h3 id="prohibition" class="count"></h3>
-                                <div>
-                                    Prohibition
-                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading bk-white">Subcases Statistics</div>
+                            <div class="panel-heading bk-white">Districts Count</div>
                             <div class="panel-body">
-                                <ul id="sub-case-type"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading bk-white">Status in Last 3 months</div>
-                            <div class="panel-body">
-                                <ul id="status-in-last-3-months"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading bk-white">Top Crimes Police Station</div>
-                            <div class="panel-body">
-                                <div id="top-crimes-policestation"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading bk-white">Top Crime Districts</div>
-                            <div class="panel-body">
-                                <div id="top-crimes-district"></div>
+                                <ul class="rlabels" id="districts-count"></ul>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading bk-white">Taluks Count</div>
+                            <div class="panel-body">
+                                <ul class="rlabels" id="taluks-count"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-12 text-center">
                         Copyright © 2020 CDAC. All rights reserved.
@@ -167,7 +141,8 @@
 
     <script src="./scripts/config.js"></script>
     <script src="./scripts/utils.js"></script>
-    <script src="./scripts/front_page.js"></script>
+    <script src="./scripts/advanced_search.js"></script>
+
     <script>
         $(document).ready(function () {
             var trigger = $('.hamburger'),

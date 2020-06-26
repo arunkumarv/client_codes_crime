@@ -12,5 +12,7 @@ let endpoints = {
     subCaseType: "subcasetype", // API - 3
     statusInLast3Months: "status-in-last-3-months", // API - 4
     topCrimesDistrict: "top-crimes-district", // API - 5
-    topCrimesPoliceStation:"top-crimes-policestation" // API - 6
+    topCrimesPoliceStation:"top-crimes-policestation", // API - 6
+    getDistricts:"DistrictAdvSearch",
+    getTaluks:"TalukAdvSearch"
 };

@@ -98,3 +98,30 @@ table#adm-table {
     padding: 0;
     white-space: nowrap;
   }
+
+  ul.rlabels {
+    list-style-type: none; 
+    padding-left: 10px; 
+  }
+
+  ul.rlabels li { 
+    display: inline-block; 
+    border: 1px solid #cdcdcd;
+    margin: 8px 12px;
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+
+  ul.rlabels li:hover { 
+    background-color: #eaeaea;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+  }
+
+  li.selected {
+    color: rgb(255, 255, 255);
+    background-color: #33333D;
+}
+
+
+

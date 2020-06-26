@@ -4,3 +4,6 @@ This code comprises static files which can be hosted on any server provided:-
 3) config.js has correct configuration settings for api server, port and other details
 
 It is preferred to host on the api server's static folder ( Spring in our case ).
+
+sidebar
+https://bootsnipp.com/snippets/Qb83E

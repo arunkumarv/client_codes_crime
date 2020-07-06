@@ -123,5 +123,10 @@ table#adm-table {
     background-color: #33333D;
 }
 
+.equal {  
+  display: -webkit-flex;
+  display: flex;
+}
+
 
 

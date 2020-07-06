@@ -7,7 +7,7 @@ function getTotalCrime() {
 
         $("#total-crime").html(response);
     })
-        .done(() => { console.log("API - 1 Done"); })
+        .done(() => { console.log("Total Crime API 1"); })
 
         .fail(() => {
 
@@ -18,7 +18,7 @@ function getTotalCrime() {
             $("#total-crime").html(response);
         })
 
-        .always(() => { console.log("1 Finished"); });
+        .always(() => { console.log("Total Crime API 1 Finished"); });
 }
 
 //API - 2
@@ -34,7 +34,7 @@ function getCaseType() {
 
         $("#prohibition").html(response.filter(e => e.caseType == "PROHIBITION")[0].count);
     })
-        .done(() => { console.log("API - 2 Done"); })
+        .done(() => { console.log("Case Type API - 2 Done"); })
 
         .fail(() => {
 
@@ -64,6 +64,8 @@ function getSubCaseType() {
     $.get(getApiUrl(ip, port, endpoints.subCaseType), function (response) {
 
         console.log("Sub Case Type (API-3): ", response);
+
+        response.forEach ( e => $("#sub-case-type").append(`<li>${e.caseType}: ${e.count}</li>`));
     })
         .done(() => { console.log("API - 3 Done"); })
 
@@ -135,6 +137,11 @@ function getStatusInLastThreeMonths() {
     $.get(getApiUrl(ip, port, endpoints.statusInLast3Months), function (response) {
 
         console.log("Status in last 3 months (API-4): ", response);
+
+        for (let [k, v] of Object.entries(response)){
+
+            $("#status-in-last-3-months").append(`<li>${camelToWords(k)}: ${v}</li>`)
+        }
     })
         .done(() => { console.log("API - 4 Done"); })
 

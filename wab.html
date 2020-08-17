@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/sb-style.css">
+    <link rel="stylesheet" href="./libs/style.css">
+    <link rel="stylesheet" href="./libs/leaflet.css">
+    <style>
+        #mapid {
+            height: 480px;
+        }
+        .hash-tag{
+            color: #1DA1F2;
+        }
+
+        .hash-tag:hover{
+            color: #0f92e3;
+            cursor: pointer;
+        }
+
+        .badge {
+            padding: 1px 9px 2px;
+            font-size: 12.025px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #ffffff;
+            background-color: #999999;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 9px;
+        }
+
+        .badge:hover {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .badge-error {
+            background-color: #b94a48;
+        }
+
+        .badge-error:hover {
+            background-color: #953b39;
+        }
+
+        .badge-warning {
+            background-color: #f89406;
+        }
+
+        .badge-warning:hover {
+            background-color: #c67605;
+        }
+
+        .badge-info {
+            background-color: #468847;
+        }
+
+        .badge-info:hover {
+            background-color: #356635;
+        }
+
+        .badge-info {
+            background-color: #3a87ad;
+        }
+
+        .badge-info:hover {
+            background-color: #2d6987;
+        }
+
+        .badge-inverse {
+            background-color: #333333;
+        }
+
+        .badge-inverse:hover {
+            background-color: #1a1a1a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <!-- <div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a  data-toggle="offcanvas">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    State Crime Records Bureau
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <p style="color: #aaa; font-size: 18px;padding: 10px;">#womenabuse</p>
+
+        <!-- Graph and sidebar -->
+        <div class="row">
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <canvas id="bar-chart" width="800" height="450"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">Panel heading without title</div>
+                    <div class="panel-body">
+                        <div id="mapid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-info">
+                        Hashtags
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">1420</span>
+                        <span class="hash-tag">#child</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">284</span>
+                        <span class="hash-tag">#crime</span>
+                    </li>
+                    <li class="list-group-item list-group-item-warning">
+                        <span class="badge badge-info">314</span>
+                        <span class="hash-tag">#womenabuse</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">184</span>
+                        <span class="hash-tag">#india</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">14</span>
+                        <span class="hash-tag">#tamilnadu</span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="badge badge-info">124</span>
+                        <span class="hash-tag">#police</span>
+                    </li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Verified User: 78
+                    </li>
+                    <li class="list-group-item">
+                        Uniq users: 850
+                    </li>
+                </ul>
+               
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-danger">
+                        Most Liked Tweets
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="list-group-item-heading">@shamshudeen</h5>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="list-group-item-heading">@solaimurugan</h5>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    </li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">
+                        Most Retweeted Tweets
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="list-group-item-heading">@arunkumarv</h5>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="list-group-item-heading">@stephen</h5>
+                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row text-center" style="padding: 20px;">
+        <div class="col">
+            CDAC Chennai
+        </div>
+    </div>
+
+
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script src="./libs/Chart.min.js"></script>
+    <script src="./libs/leaflet.js"></script>
+
+    <!-- Bar chart -->
+    <script>
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+                labels: ['10th Aug', '11th Aug', '12th Aug', '13th Aug'],
+                datasets: [
+                    {
+                        label: "Count",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [10, 14, 2, 16]
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: '#womenabuse'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <!-- Map -->
+    <script>
+        var mymap = L.map('mapid').setView([23.805825, 79.918830], 4);
+
+        L.tileLayer.wms('https://bhuvan-vec1.nrsc.gov.in/bhuvan/gwc/service/wms?', {
+            layers: 'indiainf', maxZoom: 18
+        }).addTo(mymap);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/sb-style.css">
+    <link rel="stylesheet" href="./libs/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <!-- <div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a  data-toggle="offcanvas">
+                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    State Crime Records Bureau
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="row text-center mt-2">
+            <div class="col-md-3">
+                <h5>Crime statistics in the last three months</h5>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control">
+                    <option>North</option>
+                    <option>Central</option>
+                    <option>West</option>
+                    <option>South</option>
+                    <option>Railways</option>
+                    <option>COASTAL SECURITY GROUP</option>
+                    <option>CBCID CBCID - SID</option>
+                    <option>CBCID - CRIME</option>
+                    <option>Q Branch</option>
+                    <option>CIVIL SUPPLIES CID</option>
+                    <option>ECONOMIC OFFENCES WING</option>
+                    <option>PEW</option>
+                    <option>CCIW</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="date" class="form-control" name="" id="">
+            </div>
+        </div>
+
+        <!-- Color Boxes -->
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="panel">
+                    <div class="panel-body bk-info">
+                        <h3 id="total-cases" class="count">1232</h3>
+                        <div>
+                            Total Cases
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel">
+                    <div class="panel-body bk-warning">
+                        <h3 id="murder" class="count">1232</h3>
+                        <div>
+                            Murder
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-2">
+                <div class="panel">
+                    <div class="panel-body bk-success">
+                        <h3 id="prohibition" class="count">1232</h3>
+                        <div>
+                            Prohibition
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-md-3">
+                <div class="panel">
+                    <div class="panel-body bk-danger">
+                        <h3 id="road-accidents" class="count">1232</h3>
+                        <div>
+                            Road Accidents
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel">
+                    <div class="panel-body bk-success">
+                        <h3 id="crime-against-women" class="count">1232</h3>
+                        <div>
+                            Crime Against Women
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graph and sidebar -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <canvas id="bar-chart" width="800" height="450"></canvas>
+
+            </div>
+            <div class="col-md-6">
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control">
+                            <option value="">Select Jurisdiction</option>
+                            <option value="ddd">Tambram</option>
+                            <option value="ddd">Vellore</option>
+                            <option value="ddd">Ranipet</option>
+                            <option value="ddd">Chromepet</option>
+                            <option value="ddd">Poonamalai</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" name="" id="">
+                    </div>
+                </div> -->
+
+                <!-- View Trend -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>View Trend</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <span>Select Subcase</span>
+                        <select class="form-control">
+                            <option value="">THEFT</option>
+                            <option value="">CHEATING</option>
+                            <option value="">COUNTERFEITING</option>
+                            <option value="">RAPE</option>
+                            <option value="">MURDER</option>
+                            <option value="">KIDNAPPING & ABDUCTION</option>
+                            <option value="">RIOTING</option>
+                            <option value="">DOWRY DEATH</option>
+                            <option value="">CRIME AGAINST CHILDREN</option>
+                            <option value="">MISSING PERSON</option>
+                            <option value="">174 CR.P.C. CASES</option>
+                            <option value="">FATAL</option>
+                            <option value="">NON FATAL</option>
+                            <option value="">RASH & NEGLIGENT ACT</option>
+                            <option value="">DACOITY</option>
+                            <option value="">HOUSE BURGLARY DAY</option>
+                            <option value="">HOUSE BURGLARY NIGHT</option>
+                            <option value="">MURDER FOR GAIN</option>
+                            <option value="">ROBBERY</option>
+                            <option value="">DISPERSAL OF UNLAWFUL ASSEMBLY</option>
+                            <option value="">ID ARRACK</option>
+                            <option value="">IMFL BOTTLES</option>
+                            <option value="">NARCOTIC SUBSTANCES</option>
+                            <option value="">176 CR.P.C. CASES</option>
+                            <option value="">CRIMINAL BREACH OF TRUST</option>
+                            <option value="">PREPARATION FOR DACOITY</option>
+                            <option value="">ATTEMPT TO MURDER</option>
+                            <option value="">CH NOT AMOUNTING TO MURDER</option>
+                            <option value="">HURT CASE</option>
+                            <option value="">ARSON</option>
+                            <option value="">CRUELTY BY HUSBAND & RELATIVES</option>
+                            <option value="">MOLESTATION</option>
+                            <option value="">SEXUAL HARASSMENT</option>
+                            <option value="">ASSAULT ON PUBLIC SERVANT</option>
+                            <option value="">RECTIFIED SPIRIT</option>
+                            <option value="">TODDY</option>
+                            <option value="">FERMENTED WASH</option>
+                            <option value="">MADHUKASHAYAM</option>
+                            <option value="">EXTORTION</option>
+                            <option value="">MISAPPROPRIATION</option>
+                            <option value="">RECEIVER OF STOLEN PROPERTY</option>
+                            <option value="">PREVENTIVE ARREST [ 41 CR.P.C. ]</option>
+                            <option value="">SECURITY PROCEEDINGS [107 TO 110 CR.P.C.]</option>
+                            <option value="">PREVENTIVE ARREST [ 151 CR.P.C. ]</option>
+                            <option value="">ABETMENT TO SUICIDE</option>
+                            <option value="">DEATH DUE TO NEGLIGENCE</option>
+                            <option value="">SPURIOUS LIQUOR</option>
+                            <option value="">SPECIAL & LOCAL LAWS [ SLL ]</option>
+                            <option value="">OTHERS</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <span>Start Date</span>
+                        <input type="date" class="form-control" name="" id="">
+                    </div>
+                    <div class="col-md-4">
+                        <span>End Date</span>
+                        <input type="date" class="form-control" name="" id="">
+                    </div>
+                </div>
+
+                <!-- Compare -->
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h4>Compare</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Select Subcase</span>
+                        <select class="form-control">
+                            <option value="">THEFT</option>
+                            <option value="">CHEATING</option>
+                            <option value="">COUNTERFEITING</option>
+                            <option value="">RAPE</option>
+                            <option value="">MURDER</option>
+                            <option value="">KIDNAPPING & ABDUCTION</option>
+                            <option value="">RIOTING</option>
+                            <option value="">DOWRY DEATH</option>
+                            <option value="">CRIME AGAINST CHILDREN</option>
+                            <option value="">MISSING PERSON</option>
+                            <option value="">174 CR.P.C. CASES</option>
+                            <option value="">FATAL</option>
+                            <option value="">NON FATAL</option>
+                            <option value="">RASH & NEGLIGENT ACT</option>
+                            <option value="">DACOITY</option>
+                            <option value="">HOUSE BURGLARY DAY</option>
+                            <option value="">HOUSE BURGLARY NIGHT</option>
+                            <option value="">MURDER FOR GAIN</option>
+                            <option value="">ROBBERY</option>
+                            <option value="">DISPERSAL OF UNLAWFUL ASSEMBLY</option>
+                            <option value="">ID ARRACK</option>
+                            <option value="">IMFL BOTTLES</option>
+                            <option value="">NARCOTIC SUBSTANCES</option>
+                            <option value="">176 CR.P.C. CASES</option>
+                            <option value="">CRIMINAL BREACH OF TRUST</option>
+                            <option value="">PREPARATION FOR DACOITY</option>
+                            <option value="">ATTEMPT TO MURDER</option>
+                            <option value="">CH NOT AMOUNTING TO MURDER</option>
+                            <option value="">HURT CASE</option>
+                            <option value="">ARSON</option>
+                            <option value="">CRUELTY BY HUSBAND & RELATIVES</option>
+                            <option value="">MOLESTATION</option>
+                            <option value="">SEXUAL HARASSMENT</option>
+                            <option value="">ASSAULT ON PUBLIC SERVANT</option>
+                            <option value="">RECTIFIED SPIRIT</option>
+                            <option value="">TODDY</option>
+                            <option value="">FERMENTED WASH</option>
+                            <option value="">MADHUKASHAYAM</option>
+                            <option value="">EXTORTION</option>
+                            <option value="">MISAPPROPRIATION</option>
+                            <option value="">RECEIVER OF STOLEN PROPERTY</option>
+                            <option value="">PREVENTIVE ARREST [ 41 CR.P.C. ]</option>
+                            <option value="">SECURITY PROCEEDINGS [107 TO 110 CR.P.C.]</option>
+                            <option value="">PREVENTIVE ARREST [ 151 CR.P.C. ]</option>
+                            <option value="">ABETMENT TO SUICIDE</option>
+                            <option value="">DEATH DUE TO NEGLIGENCE</option>
+                            <option value="">SPURIOUS LIQUOR</option>
+                            <option value="">SPECIAL & LOCAL LAWS [ SLL ]</option>
+                            <option value="">OTHERS</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <span>Select Jurisdiction</span>
+                        <select class="form-control">
+                            <option>North</option>
+                            <option>Central</option>
+                            <option>West</option>
+                            <option>South</option>
+                            <option>Railways</option>
+                            <option>COASTAL SECURITY GROUP</option>
+                            <option>CBCID CBCID - SID</option>
+                            <option>CBCID - CRIME</option>
+                            <option>Q Branch</option>
+                            <option>CIVIL SUPPLIES CID</option>
+                            <option>ECONOMIC OFFENCES WING</option>
+                            <option>PEW</option>
+                            <option>CCIW</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="akv">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Status in last three months</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="bar-chart1" width="800" height="450"></canvas>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <select class="form-control">
+                            <option value="">Select Jurisdiction</option>
+                            <option value="ddd">Tambram</option>
+                            <option value="ddd">Vellore</option>
+                            <option value="ddd">Ranipet</option>
+                            <option value="ddd">Chromepet</option>
+                            <option value="ddd">Poonamalai</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" name="" id="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <h5>Top Police station by crime occurrence</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <h5>Top Districts by crime occurrence</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <h5>Top Police stations by crime resolution</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <h5>Top Districts by crime resolution</h5>
+                <table class="table table-striped">
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="row text-center" style="padding: 20px;">
+        <div class="col">
+            CDAC Chennai
+        </div>
+    </div>
+
+
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script src="./libs/Chart.min.js"></script>
+    <script>
+        new Chart(document.getElementById("bar-chart"), {
+            type: 'bar',
+            data: {
+                labels: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t'],
+                datasets: [
+                    {
+                        label: "Subcase",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [10, 50, 30, 20, 25, 15, 46, 33, 23, 45, 43, 45, 65, 43, 45, 23, 32, 43, 45, 43]
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Top 20 Subcase statistics'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        new Chart(document.getElementById("bar-chart1"), {
+            type: 'bar',
+            data: {
+                labels: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"],
+                datasets: [
+                    {
+                        label: "Subcase",
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                        data: [10, 50, 30, 20, 25, 15, 46, 33, 23, 45, 43, 45, 65, 43, 45, 23, 32, 43, 45, 43]
+                    }
+                ]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Top 20 Subcase statistics'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

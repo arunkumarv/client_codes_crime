@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Dashboard</title>
+    <link rel="stylesheet" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" href="./libs/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">State Crime Records Bureau (SCRB)</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 text-right" style="padding: 6px;">
+                <span>Show crimes from last three months</span>
+            </div>
+            <div class="col-md-3">
+                <input type="date" name="" class="form-control" id="">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-2">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="panel akv-border panel-info">
+                    <div class="panel-heading"><b>Select:</b> Zone > Range > District</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="zone-selector">Select Zone</label>
+                            <select class="form-control" id="zone-selector">
+                                <option>No Data</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="range-selector">Select Range</label>
+                            <select class="form-control" id="range-selector">
+                                <option>No Data</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="district-selector">Select District</label>
+                            <select class="form-control" id="district-selector">
+                                <option>No Data</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group ">
+                    <a href="#" class="list-group-item list-group-item-success">
+                        Pages
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Crime Trends
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Advanced Search
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        RTM Hotspot
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Timeline Visualisation
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        SOCMINT For Lea
+                    </a>
+                </div>
+            </div>
+
+            <!-- Middle div -->
+            <div class="col-md-6">
+                <div class="panel akv-border">
+                    <div class="panel-body">
+                        <canvas id="bar-chart" width="800" height="570"></canvas>
+                    </div>
+                </div>
+
+                <div class="panel akv-border">
+                    <div class="panel-body">
+                        <div class="row text-center">
+                            <div class="col-lg-3">
+                                <input type="radio" name="radio-one" id=""> Top Event
+                            </div>
+                            <div class="col-lg-6">
+                                <input type="radio" name="radio-one" id=""> Compare Two Case Type
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="radio" name="radio-one" id=""> Compare
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel akv-border">
+                    <div class="panel-body">
+                        <div class="row text-center">
+                            <div class="col-lg-3">
+                                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                <span class="akv-info">Top DS by crime</span>
+                            </div>
+                            <div class="col-lg-3">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                <span class="akv-info">Top Districts by crime</span>
+                            </div>
+                            <div class="col-lg-3">
+                                <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                <span class="akv-info">Top DS</span>
+                            </div>
+                            <div class="col-lg-3">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                <span class="akv-info">Top Districts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right side div -->
+            <div class="col-md-3">
+                <div class="panel akv-border">
+                    <div class="panel-body">
+                        <div class="panel">
+                            <div class="panel-body bk-info">
+                                <h3 id="total-cases" class="count">0000</h3>
+                                <div>
+                                    Total Cases
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body bk-warning">
+                                <h3 id="murder" class="count">0000</h3>
+                                <div>
+                                    Murder
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body bk-danger">
+                                <h3 id="road-accidents" class="count">0000</h3>
+                                <div>
+                                    Road Accidents
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-body bk-success">
+                                <h3 id="crime-against-women" class="count">0000</h3>
+                                <div>
+                                    Crime Against Women
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel" style="margin-bottom: 0;">
+                            <div class="panel-body bk-grey">
+                                <h3 id="prohibitions" class="count">0000</h3>
+                                <div>
+                                    Prohibitions
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row text-center" style="padding-top: 30px;">
+        <div class="col">
+            CDAC Chennai
+        </div>
+    </div>
+
+
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/bootstrap.min.js"></script>
+    <script src="./libs/Chart.min.js"></script>
+    <script>
+        function getCounts() {
+
+            $.get(getApiUrl(ip, port, endpoints.TotalCasesPast3Months), function (response) {
+
+                $("#total-cases").html(response[0].count);
+            });
+            $.get(getApiUrl(ip, port, endpoints.RdAccidentsPast3Months), function (response) {
+
+                $("#road-accidents").html(response[0].count);
+            });
+            $.get(getApiUrl(ip, port, endpoints.ProhibitionsPast3Months), function (response) {
+
+                $("#prohibitions").html(response[0].count);
+            });
+            $.get(getApiUrl(ip, port, endpoints.WomenCrimePast3Months), function (response) {
+
+                $("#crime-against-women").html(response[0].count);
+            });
+            $.get(getApiUrl(ip, port, endpoints.MurdersPast3Months), function (response) {
+
+                $("#murder").html(response[0].count);
+            });
+        }
+
+        function getTop20SubcaseBar() {
+
+            $.get(getApiUrl(ip, port, endpoints.CaseSubTypePast3Months), function (response) {
+
+                let response = [{ "value": "SPECIAL & LOCAL LAWS [ SLL ]", "count": 32943 }, { "value": "IMFL BOTTLES", "count": 31930 }, { "value": "PREVENTIVE ARREST [ 41 CR.P.C. ]", "count": 29264 }, { "value": "OTHERS", "count": 17035 }, { "value": "NON FATAL", "count": 14506 }, { "value": "174 CR.P.C. CASES", "count": 9426 }, { "value": "HURT CASE", "count": 5141 }, { "value": "SECURITY PROCEEDINGS [107 TO 110 CR.P.C.]", "count": 4897 }, { "value": "THEFT", "count": 4519 }, { "value": "MISSING PERSON", "count": 3568 }, { "value": "ID ARRACK", "count": 3104 }, { "value": "FATAL", "count": 2606 }, { "value": "TODDY", "count": 2006 }, { "value": "PREVENTIVE ARREST [ 151 CR.P.C. ]", "count": 1879 }, { "value": "CHEATING", "count": 971 }, { "value": "NARCOTIC SUBSTANCES", "count": 848 }, { "value": "HOUSE BURGLARY NIGHT", "count": 707 }, { "value": "ROBBERY", "count": 663 }, { "value": "ATTEMPT TO MURDER", "count": 639 }, { "value": "RIOTING", "count": 412 }];
+
+                let labels = response.map(e => e.value);
+
+                let data = response.map(e => e.count);
+
+                new Chart(document.getElementById("bar-chart"), {
+                    type: 'horizontalBar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: "Subcase",
+                                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                data: data
+                            }
+                        ]
+                    },
+                    options: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Top 20 Subcase statistics'
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+            });
+        }
+    </script>
+
+    <script>
+
+        $(function () {
+
+            getCounts();
+
+            getTop20SubcaseBar();
+        }); 
+    </script>
+</body>
+
+</html>

@@ -13,6 +13,33 @@
 
 <body>
   <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3">
+            <span>From Date</span>
+            <input type="date" name="fromDate" id="fromDate" class="form-control" value="2019-04-01">
+          </div>
+    
+          <div class="col-md-3">
+            <span>To Date</span>
+            <input type="date" name="toDate" id="toDate" class="form-control" value="2019-04-05">
+          </div>
+          <div class="col-md-3">
+            <span>Case Type</span>
+            <select name="caseType" id="caseType" class="form-control"></select>
+          </div>
+          <div class="col-md-3">
+            <span>Case sub type</span>
+            <select name="caseSubType" id="caseSubType" class="form-control"></select>
+          </div>
+          <div class="col-md-3">
+            <input type="submit" class="btn btn-primary" onclick="getData()">
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="row toolbar-pf">
       <div class="col-sm-12">
         <form class="toolbar-pf-actions">
@@ -53,6 +80,7 @@
         </form>
       </div>
     </div>
+
     <div class="row">
       <div id="pf-timeline"></div>
     </div>
@@ -71,8 +99,8 @@
 <script src="./timeline/patternfly.min.js"></script>
 
 <!-- external file containing json object for data -->
-<script src="./timeline/data.js"></script>
+<!-- <script src="./timeline/data.js"></script> -->
 
-<script src="./timeline/script.js"></script>
+<script src="./timeline/script1.js"></script>
 
 </html>
